@@ -109,7 +109,7 @@ static void wl_surface_frame_done(void* data, struct wl_callback *cb, uint32_t t
 	}
 
 	wl_surface_attach(app->surface,buffer,0,0);
-	wl_surface_damage(app->surface,0,0,UINT32_MAX,UINT32_MAX);
+	wl_surface_damage(app->surface,0,0,width,height);
 	wl_surface_commit(app->surface);
 
 }
@@ -181,7 +181,7 @@ int main(){
 	buffer = wl_shm_pool_create_buffer(pool, 0, width, height, stride, WL_SHM_FORMAT_XRGB8888);
 
 	wl_surface_attach(app.surface,buffer,0,0);
-	wl_surface_damage(app.surface,0,0,UINT32_MAX,UINT32_MAX);
+	wl_surface_damage(app.surface,0,0,width,height);
 	wl_surface_commit(app.surface);
 
 
